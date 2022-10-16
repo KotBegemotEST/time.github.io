@@ -56,7 +56,25 @@
         const numInputs = document.querySelectorAll('input[type=text]')
 
 
-        for( let i in numInputs){
+        for( let i = 0; i< numInputs.length; i++){
+            var valid = !/\s/.test( numInputs[i].value )
+            if (!valid) {
+                alert("Ees- ja perekonnanimi ei tohi sisaldada tühjad")
+                return
+            }
+           
+
+            if (numInputs[i].value.match(/\d/g) ) {
+                alert("Ees- ja perekonnanimi ei tohi sisaldada numbreid")
+                numInputs[i].focus
+                return
+             }
+
+        }
+
+
+        
+        for(let i = 0; i< numInputs.length; i++){
             if (numInputs[i].value.match(/\d/g) ) {
                 alert("Ees- ja perekonnanimi ei tohi sisaldada numbreid")
                 numInputs[i].focus
